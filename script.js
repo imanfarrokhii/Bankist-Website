@@ -21,7 +21,7 @@ const closeModal = function () {
 
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 
-// Classic for looping!
+// Classic 'for' looping:
 // for (let i = 0; i < btnsOpenModal.length; i++)
 //   btnsOpenModal[i].addEventListener('click', openModal);
 
@@ -33,3 +33,24 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+// Selecting elements
+const header = document.querySelector('.header');
+
+// Creating and inserting elements
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML =
+  'We use cookies for improved functionality and analytics, <button class="btn btn--close-cookie">Got it!</button>';
+
+header.append(message);
+
+// Deleting elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    message.remove();
+
+    // Classic remove method:
+    // message.parentElement.removeChild(message);
+  });
