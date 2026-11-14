@@ -135,24 +135,32 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 
 nav.addEventListener('mouseout', handleHover.bind(1));
 
+// Sticky navigation
+const initialCoords = section1.getBoundingClientRect();
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+
 ///////////////////////////////////////
 // Selecting elements
-const header = document.querySelector('.header');
+// const header = document.querySelector('.header');
 
 // Creating and inserting elements
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.innerHTML =
-  'We use cookies for improved functionality and analytics, <button class="btn btn--close-cookie">Got it!</button>';
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.innerHTML =
+//   'We use cookies for improved functionality and analytics, <button class="btn btn--close-cookie">Got it!</button>';
 
-header.append(message);
+// header.append(message);
 
 // Deleting elements
-document
-  .querySelector('.btn--close-cookie')
-  .addEventListener('click', function () {
-    message.remove();
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function () {
+//     message.remove();
 
-    // Classic remove method:
-    // message.parentElement.removeChild(message);
-  });
+//     // Classic remove method:
+//     // message.parentElement.removeChild(message);
+//   });
